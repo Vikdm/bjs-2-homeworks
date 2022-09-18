@@ -22,10 +22,13 @@ function getArrayParams(arr) {
     sum += arr1;
   }
 
-
-  avg = (sum / arr.length).toFixed(2);
+  avg = +(sum / arr.length).toFixed(2);
   return { min: min, max: max, avg: avg };
 }
+
+
+
+
 
 // Задание 2
 function worker(arr) {
