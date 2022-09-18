@@ -29,22 +29,23 @@ function getArrayParams(arr) {
 // Задание 2
 function worker(arr) {
   let sum = 0;
-  
-    for (let arr1 of arr) {
-      sum += arr1;
-    }
+
+  for (let arr1 of arr) {
+    sum += arr1;
+  }
 
   return sum;
- 
 }
 
 function makeWork(arrOfArr, func) {
-  let max;
+  let max = -Infinity;
+  for (let arr of arrOfArr) {
+    let sum = func(arr);
+    if (sum > max) max = sum;
+  }
+  return max;
+  }
 
-
-return max;
-
-}
 
 // Задание 3
 function worker2(arr) {
