@@ -18,7 +18,7 @@ function getArrayParams(arr) {
     }
   }
 
-  for (let arr1 of arr){
+  for (let arr1 of arr) {
     sum += arr1;
   }
 
@@ -26,26 +26,24 @@ function getArrayParams(arr) {
   return { min: min, max: max, avg: avg };
 }
 
-
-
-
-
 // Задание 2
 function worker(arr) {
-  let sum;
-
-  // Ваш код
+  let sum = 0;
+  
+    for (let arr1 of arr) {
+      sum += arr1;
+    }
 
   return sum;
+ 
 }
 
 function makeWork(arrOfArr, func) {
   let max;
 
-  // Ваш кода
-  // for ...
 
-  return max;
+return max;
+
 }
 
 // Задание 3
