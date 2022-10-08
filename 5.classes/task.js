@@ -74,12 +74,12 @@ class Library {
   }
 
   findBookBy(type, value) {
-    return this.books.find(element => element[type] === value) || null;
+    return this.books.find((element) => element[type] === value) || null;
   }
 
   giveBookByName(bookName) {
-    let result = this.books.find(element => element.name === bookName);
-    this.books.splice(this.books.indexOf(result),1);
+    let result = this.books.find((element) => element.name === bookName);
+    this.books.splice(this.books.indexOf(result), 1);
     return result || null;
   }
 }
