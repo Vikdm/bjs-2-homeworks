@@ -24,15 +24,41 @@ function debounceDecoratorNew(func, delay) {
   let timeout;
   let isThrottled = false;
 
-  return function (...args){
-    clearTimeout (timeout);
-    timeout = setTimeout(()=> {
-      func.call(this,...args);
+  return function (...args) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      func.call(this, ...args);
     }, delay);
 
-    if (!isThrottled){
-      func.call(this,...args);
+    if (!isThrottled) {
+      func.call(this, ...args);
       isThrottled = true;
     }
+  };
+}
+
+function debounceDecoratorNewNew(func, delay) {
+  let isThrottled = false;
+  let timeout;
+  wrapper.count = 0;
+
+  function wrapper(...args) {
+    if (timeout) {
+      clearTimeout(timeout);
+    }
+
+    if (!isThrottled) {
+      func.call(this, ...args);
+      wrapper.count++;
+      isThrottled = true;
+    }
+
+    timeout = setTimeout(() => {
+      isThrottled = false;
+      func.call(this, ...args);
+      wrapper.count++;
+    }, delay);
   }
+
+  return wrapper;
 }
